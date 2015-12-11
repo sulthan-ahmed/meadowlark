@@ -1,0 +1,25 @@
+{
+  "name": "meadowlark",
+  "version": "1.0.0",
+  "description": "demo in the web dev book with node and express",
+  "main": "meadowlark.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sulthan-ahmed/meadowlark.git"
+  },
+  "keywords": [
+    "training"
+  ],
+  "author": "Sulthan Ahmed",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sulthan-ahmed/meadowlark/issues"
+  },
+  "homepage": "https://github.com/sulthan-ahmed/meadowlark#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
