@@ -16,23 +16,21 @@ app.set('view engine', 'handlebars');
 app.set('port', process.env.PORT || 3000);
 
 //app. get is a method that takes two parameters: a path and a function.
+//by default the content type will be html
 app.get('/', function(req, res){
-    res.type('type/plain');
-    res.send('Meadowlark Travel');
+    res.render('home');
 });
 
 app.get('/about', function(req, res){
-    res.type('text/plain');
-    res.send('About Meadowlark Travel');
+    res.render('about');
 });
 
 // Express adds middleware when you use app.use
 // i.e. catch-all handler for anything that didn’t get matched by a route
 // custom 404 page
 app.use(function(req, res){
-    res.type('text/plain');
     res.status(404);
-    res.send('404- Not Found');
+    res.render('404');
 });
 
 //custom 500 page
@@ -40,7 +38,7 @@ app.use(function(err, req, res, next) {
     console.error(err.stack);
     res.type('text/plain');
     res.status(500);
-    res.send('500 - Server Error');
+    res.render('500');
 });
 
 
