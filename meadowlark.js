@@ -2,10 +2,10 @@ var express = require('express');
 var app = express();
 
 //in Express, the order in which routes and middleware are added is significant
-
 //set up handlebars as our template engine (i.e. view engine)
-//specified default layout as main. This is the layout for any viewß
-var handlebars = require('express3-handlebars').create({defaultLayout: 'main'})
+//specified default layout as main. This is the layout for any view
+var handlebars = require('express3-handlebars')
+    .create({ defaultLayout:'main' });
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
@@ -33,17 +33,14 @@ app.use(function(req, res){
     res.render('404');
 });
 
-//custom 500 page
-app.use(function(err, req, res, next) {
+// 500 error handler (middleware)
+app.use(function(err, req, res, next){
     console.error(err.stack);
-    res.type('text/plain');
     res.status(500);
     res.render('500');
 });
 
-
 app.listen(app.get('port'), function(){
-    console.log('Express started on http://localhost:' +
-    app.get('port') + '; press Ctrl-C to terminate')
+    console.log( 'Express started on http://localhost:' +
+        app.get('port') + '; press Ctrl-C to terminate.' );
 });
-

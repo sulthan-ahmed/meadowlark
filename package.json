@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sulthan-ahmed/meadowlark.git"
+    "url": "https://github.com/sulthan-ahmed/meadowlark.git"
   },
   "keywords": [
     "training"
@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/sulthan-ahmed/meadowlark#readme",
   "dependencies": {
-    "express": "^4.13.3",
-    "express3-handlebars": "^0.5.2"
+    "express": "~4.4.2",
+    "express3-handlebars": "~0.5.0"
   }
 }
