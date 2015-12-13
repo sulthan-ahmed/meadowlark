@@ -15,6 +15,17 @@ app.set('view engine', 'handlebars');
 // or 3000 if there's nothing there.
 app.set('port', process.env.PORT || 3000);
 
+// middleware are function(s) run between the client request and the server answer.
+//To serve static files such as images, CSS files, and JavaScript files
+//use the express.static built-in middleware
+//_dirname is use to refer to the location of this module's path
+app.use(express.static(__dirname + '/public'));
+
+app.use(function (req, res, next) {
+    console.log("first middle ware");
+    next();
+});
+
 //app. get is a method that takes two parameters: a path and a function.
 //by default the content type will be html
 app.get('/', function(req, res){
