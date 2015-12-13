@@ -1,5 +1,10 @@
-var express = require('express');
+var https = require('https');
+    express = require('express');
+
+
 var app = express();
+
+var credentials = require('./credentials.js')
 
 //in Express, the order in which routes and middleware are added is significant
 //set up handlebars as our template engine (i.e. view engine)
@@ -8,6 +13,14 @@ var handlebars = require('express3-handlebars')
     .create({ defaultLayout:'main' });
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
+
+var fortunes = [
+    "Don't cry because it's over, smile because it happened.",
+    "Be yourself; everyone else is already taken.",
+    "You know you're in love when you can't fall asleep because reality is finally better than your dreams.",
+    "Be the change that you wish to see in the world.",
+    "If you tell the truth, you don't have to remember anything."
+];
 
 //In many environments (e.g. Heroku), and as a convention, you can set the environment
 // variable PORT to tell your web server what port to listen on.
@@ -33,7 +46,12 @@ app.get('/', function(req, res){
 });
 
 app.get('/about', function(req, res){
-    res.render('about');
+    //floor() rounds down and random() makes a random value between 0 and 1
+    var randomFortune =
+            fortunes[Math.floor(Math.random() * fortunes.length)];
+    //here we are passing our var randomFortune as fortune to the html
+    //this can then be used in the html
+    res.render('about', { fortune: randomFortune});
 });
 
 // Express adds middleware when you use app.use
