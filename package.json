@@ -4,7 +4,9 @@
   "description": "demo in the web dev book with node and express",
   "main": "meadowlark.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -20,7 +22,9 @@
   },
   "homepage": "https://github.com/sulthan-ahmed/meadowlark#readme",
   "dependencies": {
-    "express": "~4.4.2",
-    "express3-handlebars": "~0.5.0"
-  }
+    "express": "~4.15.5",
+    "express3-handlebars": "~0.5.0",
+    "snyk": "^1.105.0"
+  },
+  "snyk": true
 }
