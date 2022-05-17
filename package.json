@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/sulthan-ahmed/meadowlark#readme",
   "dependencies": {
-    "express": "~4.4.2",
+    "express": "~4.15.3",
     "express3-handlebars": "~0.5.0"
   }
 }
